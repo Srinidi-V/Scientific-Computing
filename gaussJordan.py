@@ -1,7 +1,7 @@
 import numpy as np
 
 #Function enumerating gauss jordan two steps
-def gauss_elimination(a,n):
+def gauss_jordan(a,n):
     x = forward_elimination(a,n)
     print("Final")
     print(a)
@@ -66,4 +66,4 @@ for i in range(n):
     for j in range(n+1):
         a[i][j] = int(input( 'a['+str(i)+']['+ str(j)+']='))
 
-gauss_elimination(a,n)
+gauss_jordan(a,n)
