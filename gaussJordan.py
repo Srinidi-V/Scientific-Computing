@@ -1,8 +1,8 @@
 import numpy as np
 
-#Function enumerating gauss jordan two steps
+#Function to implement gauss jordan
 def gauss_jordan(a,n):
-    x = forward_elimination(a,n)
+    x = elimination(a,n)
     print("Final")
     print(a)
     if x!=-1:
@@ -13,35 +13,15 @@ def gauss_jordan(a,n):
             print("Infinite solutions")
     back_substitution(a,n)
 
-#Function to swap two rows
-def swap(a,n,i,j):
-    for k in range(n+1):
-        temp = a[i,k]
-        a[i,k] = a[j,k]
-        a[j,k] = temp
-
-#Function to perform forward elimination
-def forward_elimination(a,n):
+#Function to perform elimination
+def elimination(a,n):
     for k in range(n):
-        index = k
-        value = a[index,k]
-        
-        for i in range(k+1,n):
-            if int(a[i,k])>value:
-                index = i
-                value = a[i,k]
-                
-        if a[k,index]==0:     #singular matrix
-            return k
-        
-        if index!=k:
-            swap(a,n,k,index)
-            
         for i in range(n):
             if i!=k:
                 r = a[i,k]/a[k,k]
-                for j in range(k+1,n+1):
-                    a[i,j] = a[i,j]-a[k,j]*r
+                for j in range(n+1):
+                    if j!=k:
+                        a[i,j] = a[i,j]-a[k,j]*r
                 a[i,k]=0
         print(a)
     return -1
