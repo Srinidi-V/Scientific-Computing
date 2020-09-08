@@ -1,4 +1,4 @@
-# Solving-linear-equations-Linear-Algebra
+# Scientific Computing
 Four methods for solving system of linear equations
 
   1. Gauss Elimination
